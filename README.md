@@ -1,4 +1,4 @@
-# Sample InSpec Profile
+# Practice InSpec Profile
 
 This example profile is for tutorial in [Day 9: Attributes] of the [InSpec Basics](http://www.anniehedgie.com/inspec) series in [my blog](http://www.anniehedgie.com). 
 
