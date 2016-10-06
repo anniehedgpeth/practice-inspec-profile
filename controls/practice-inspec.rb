@@ -2,19 +2,30 @@
 # copyright: 2015, The Authors
 # license: All rights reserved
 
-title 'sample section'
+title 'Practice InSpec Profile'
 
-# you can also use plain tests
-describe file('/tmp') do
-  it { should be_directory }
+#These are obviously dummy tests that will fail, but in the output you'll see how it tested the nodes.
+
+control "Tests for both database server and webserver" do
+  title "Base Tests"
+  desc "The tests within this control do not call a role attribute, therefor they will be used for every type of node."
+  describe user('anniehedgpeth') do
+    it { should exist }
+  end
 end
 
-# you add controls here
-control 'tmp-1.0' do                        # A unique ID for this control
-  impact 0.7                                # The criticality, if this control fails.
-  title 'Create /tmp directory'             # A human-readable title
-  desc 'An optional description...'
-  describe file('/tmp') do                  # The actual test
-    it { should be_directory }
+control "Testing only webserver" do
+  title "Tests for Webserver"
+  desc "The following tests within this control will be used for webserver nodes."
+  describe user('annie') do
+    it { should exist }
+  end
+end
+
+control "Testing only database server" do
+  title "Tests for Database Server"
+  desc "The following tests within this control will be used for database server nodes."
+  describe user('hedgpeth') do
+    it { should exist }
   end
 end
