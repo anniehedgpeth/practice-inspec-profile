@@ -14,18 +14,25 @@ control "Tests for both client and server" do
   end
 end
 
-control "Testing only client" do
-  title "Tests for client"
-  desc "The following tests within this control will be used for client nodes."
-  describe user('client') do
-    it { should exist }
+# Attributes specify which tests will be run for that role
+role = attribute('role', default: 'base', description: 'type of node that the InSpec profile is testing')
+
+if ['client', 'base'].include? role
+  control "Testing only client" do
+    title "Tests for client"
+    desc "The following tests within this control will be used for client nodes."
+    describe user('client') do
+      it { should exist }
+    end
   end
 end
 
-control "Testing only server" do
-  title "Tests for Server"
-  desc "The following tests within this control will be used for server nodes."
-  describe user('server') do
-    it { should exist }
+if ['server', 'base'].include? role
+  control "Testing only server" do
+    title "Tests for Server"
+    desc "The following tests within this control will be used for server nodes."
+    describe user('server') do
+      it { should exist }
+    end
   end
 end
