@@ -1,0 +1,8 @@
+name: practice-inspec-profile
+title: Practice InSpec Profile
+maintainer: Annie Hedgpeth
+copyright: Annie Hedgpeth
+copyright_email: annie.hedgpeth@gmail.com
+license: All Rights Reserved
+summary: An exercise in building and maintaining InSpec profiles
+version: 0.1.0
